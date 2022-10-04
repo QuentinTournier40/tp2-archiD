@@ -14,25 +14,16 @@ _sym_db = _symbol_database.Default()
 
 
 
-<<<<<<< HEAD
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0bmovie.proto\"\x15\n\x07MovieID\x12\n\n\x02id\x18\x01 \x01(\t\"H\n\tMovieData\x12\r\n\x05title\x18\x01 \x01(\t\x12\x0e\n\x06rating\x18\x02 \x01(\x02\x12\x10\n\x08\x64irector\x18\x03 \x01(\t\x12\n\n\x02id\x18\x04 \x01(\t\"\x1b\n\nMovieTitle\x12\r\n\x05title\x18\x01 \x01(\t\"&\n\x13NotificationMessage\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x07\n\x05\x45mpty2\xb9\x01\n\x05Movie\x12&\n\x0cGetMovieByID\x12\x08.MovieID\x1a\n.MovieData\"\x00\x12\'\n\rGetListMovies\x12\x06.Empty\x1a\n.MovieData\"\x00\x30\x01\x12,\n\x0fGetMovieByTitle\x12\x0b.MovieTitle\x1a\n.MovieData\"\x00\x12\x31\n\x0b\x43reateMovie\x12\n.MovieData\x1a\x14.NotificationMessage\"\x00\x62\x06proto3')
-=======
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0bmovie.proto\"\x15\n\x07MovieID\x12\n\n\x02id\x18\x01 \x01(\t\"\x1b\n\nMovieTitle\x12\r\n\x05title\x18\x01 \x01(\t\"!\n\rMovieDirector\x12\x10\n\x08\x64irector\x18\x01 \x01(\t\"+\n\rMovieIdRating\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06rating\x18\x02 \x01(\x02\"H\n\tMovieData\x12\r\n\x05title\x18\x01 \x01(\t\x12\x0e\n\x06rating\x18\x02 \x01(\x02\x12\x10\n\x08\x64irector\x18\x03 \x01(\t\x12\n\n\x02id\x18\x04 \x01(\t\"\x07\n\x05\x45mpty2\xed\x01\n\x05Movie\x12&\n\x0cGetMovieByID\x12\x08.MovieID\x1a\n.MovieData\"\x00\x12\'\n\rGetListMovies\x12\x06.Empty\x1a\n.MovieData\"\x00\x30\x01\x12,\n\x0fGetMovieByTitle\x12\x0b.MovieTitle\x1a\n.MovieData\"\x00\x12\x32\n\x12GetMovieByDirector\x12\x0e.MovieDirector\x1a\n.MovieData\"\x00\x12\x31\n\x11UpdateMovieRating\x12\x0e.MovieIdRating\x1a\n.MovieData\"\x00\x62\x06proto3')
->>>>>>> 7ec8f43c41056acfc954222aac02b495d4219f79
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0bmovie.proto\"\x15\n\x07MovieID\x12\n\n\x02id\x18\x01 \x01(\t\"\x1b\n\nMovieTitle\x12\r\n\x05title\x18\x01 \x01(\t\"!\n\rMovieDirector\x12\x10\n\x08\x64irector\x18\x01 \x01(\t\"+\n\rMovieIdRating\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06rating\x18\x02 \x01(\x02\"H\n\tMovieData\x12\r\n\x05title\x18\x01 \x01(\t\x12\x0e\n\x06rating\x18\x02 \x01(\x02\x12\x10\n\x08\x64irector\x18\x03 \x01(\t\x12\n\n\x02id\x18\x04 \x01(\t\"&\n\x13NotificationMessage\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x07\n\x05\x45mpty2\xa0\x02\n\x05Movie\x12&\n\x0cGetMovieByID\x12\x08.MovieID\x1a\n.MovieData\"\x00\x12\'\n\rGetListMovies\x12\x06.Empty\x1a\n.MovieData\"\x00\x30\x01\x12,\n\x0fGetMovieByTitle\x12\x0b.MovieTitle\x1a\n.MovieData\"\x00\x12\x31\n\x0b\x43reateMovie\x12\n.MovieData\x1a\x14.NotificationMessage\"\x00\x12\x32\n\x12GetMovieByDirector\x12\x0e.MovieDirector\x1a\n.MovieData\"\x00\x12\x31\n\x11UpdateMovieRating\x12\x0e.MovieIdRating\x1a\n.MovieData\"\x00\x62\x06proto3')
 
 
 
 _MOVIEID = DESCRIPTOR.message_types_by_name['MovieID']
-<<<<<<< HEAD
-_MOVIEDATA = DESCRIPTOR.message_types_by_name['MovieData']
-_MOVIETITLE = DESCRIPTOR.message_types_by_name['MovieTitle']
-_NOTIFICATIONMESSAGE = DESCRIPTOR.message_types_by_name['NotificationMessage']
-=======
 _MOVIETITLE = DESCRIPTOR.message_types_by_name['MovieTitle']
 _MOVIEDIRECTOR = DESCRIPTOR.message_types_by_name['MovieDirector']
 _MOVIEIDRATING = DESCRIPTOR.message_types_by_name['MovieIdRating']
 _MOVIEDATA = DESCRIPTOR.message_types_by_name['MovieData']
->>>>>>> 7ec8f43c41056acfc954222aac02b495d4219f79
+_NOTIFICATIONMESSAGE = DESCRIPTOR.message_types_by_name['NotificationMessage']
 _EMPTY = DESCRIPTOR.message_types_by_name['Empty']
 MovieID = _reflection.GeneratedProtocolMessageType('MovieID', (_message.Message,), {
   'DESCRIPTOR' : _MOVIEID,
@@ -41,16 +32,6 @@ MovieID = _reflection.GeneratedProtocolMessageType('MovieID', (_message.Message,
   })
 _sym_db.RegisterMessage(MovieID)
 
-<<<<<<< HEAD
-MovieData = _reflection.GeneratedProtocolMessageType('MovieData', (_message.Message,), {
-  'DESCRIPTOR' : _MOVIEDATA,
-  '__module__' : 'movie_pb2'
-  # @@protoc_insertion_point(class_scope:MovieData)
-  })
-_sym_db.RegisterMessage(MovieData)
-
-=======
->>>>>>> 7ec8f43c41056acfc954222aac02b495d4219f79
 MovieTitle = _reflection.GeneratedProtocolMessageType('MovieTitle', (_message.Message,), {
   'DESCRIPTOR' : _MOVIETITLE,
   '__module__' : 'movie_pb2'
@@ -58,14 +39,6 @@ MovieTitle = _reflection.GeneratedProtocolMessageType('MovieTitle', (_message.Me
   })
 _sym_db.RegisterMessage(MovieTitle)
 
-<<<<<<< HEAD
-NotificationMessage = _reflection.GeneratedProtocolMessageType('NotificationMessage', (_message.Message,), {
-  'DESCRIPTOR' : _NOTIFICATIONMESSAGE,
-  '__module__' : 'movie_pb2'
-  # @@protoc_insertion_point(class_scope:NotificationMessage)
-  })
-_sym_db.RegisterMessage(NotificationMessage)
-=======
 MovieDirector = _reflection.GeneratedProtocolMessageType('MovieDirector', (_message.Message,), {
   'DESCRIPTOR' : _MOVIEDIRECTOR,
   '__module__' : 'movie_pb2'
@@ -86,7 +59,13 @@ MovieData = _reflection.GeneratedProtocolMessageType('MovieData', (_message.Mess
   # @@protoc_insertion_point(class_scope:MovieData)
   })
 _sym_db.RegisterMessage(MovieData)
->>>>>>> 7ec8f43c41056acfc954222aac02b495d4219f79
+
+NotificationMessage = _reflection.GeneratedProtocolMessageType('NotificationMessage', (_message.Message,), {
+  'DESCRIPTOR' : _NOTIFICATIONMESSAGE,
+  '__module__' : 'movie_pb2'
+  # @@protoc_insertion_point(class_scope:NotificationMessage)
+  })
+_sym_db.RegisterMessage(NotificationMessage)
 
 Empty = _reflection.GeneratedProtocolMessageType('Empty', (_message.Message,), {
   'DESCRIPTOR' : _EMPTY,
@@ -101,18 +80,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   _MOVIEID._serialized_start=15
   _MOVIEID._serialized_end=36
-<<<<<<< HEAD
-  _MOVIEDATA._serialized_start=38
-  _MOVIEDATA._serialized_end=110
-  _MOVIETITLE._serialized_start=112
-  _MOVIETITLE._serialized_end=139
-  _NOTIFICATIONMESSAGE._serialized_start=141
-  _NOTIFICATIONMESSAGE._serialized_end=179
-  _EMPTY._serialized_start=181
-  _EMPTY._serialized_end=188
-  _MOVIE._serialized_start=191
-  _MOVIE._serialized_end=376
-=======
   _MOVIETITLE._serialized_start=38
   _MOVIETITLE._serialized_end=65
   _MOVIEDIRECTOR._serialized_start=67
@@ -121,9 +88,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _MOVIEIDRATING._serialized_end=145
   _MOVIEDATA._serialized_start=147
   _MOVIEDATA._serialized_end=219
-  _EMPTY._serialized_start=221
-  _EMPTY._serialized_end=228
-  _MOVIE._serialized_start=231
-  _MOVIE._serialized_end=468
->>>>>>> 7ec8f43c41056acfc954222aac02b495d4219f79
+  _NOTIFICATIONMESSAGE._serialized_start=221
+  _NOTIFICATIONMESSAGE._serialized_end=259
+  _EMPTY._serialized_start=261
+  _EMPTY._serialized_end=268
+  _MOVIE._serialized_start=271
+  _MOVIE._serialized_end=559
 # @@protoc_insertion_point(module_scope)

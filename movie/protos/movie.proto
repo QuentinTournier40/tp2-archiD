@@ -33,10 +33,6 @@ message MovieData {
     string id = 4;
 }
 
-message MovieTitle{
-    string title = 1;
-}
-
 message NotificationMessage{
     string message = 1;
 }
