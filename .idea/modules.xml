@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/UE-AD-A1-GRPC.iml" filepath="$PROJECT_DIR$/.idea/UE-AD-A1-GRPC.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/tp2-archiD.iml" filepath="$PROJECT_DIR$/.idea/tp2-archiD.iml" />
+>>>>>>> 7ec8f43c41056acfc954222aac02b495d4219f79
     </modules>
   </component>
 </project>
