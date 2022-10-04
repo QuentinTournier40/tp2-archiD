@@ -2,10 +2,27 @@ syntax = "proto3";
 
 service Movie {
     rpc GetMovieByID(MovieID) returns (MovieData) {}
+    rpc GetListMovies(Empty) returns (stream MovieData) {}
+    rpc GetMovieByTitle(MovieTitle) returns (MovieData) {}
+    rpc GetMovieByDirector(MovieDirector) returns (MovieData) {}
+    rpc UpdateMovieRating(MovieIdRating) returns (MovieData) {}
 }
 
 message MovieID {
     string id = 1;
+}
+
+message MovieTitle {
+    string title = 1;
+}
+
+message MovieDirector {
+    string director = 1;
+}
+
+message MovieIdRating {
+    string id = 1;
+    float rating = 2;
 }
 
 message MovieData {
@@ -13,4 +30,7 @@ message MovieData {
     float rating = 2;
     string director = 3;
     string id = 4;
+}
+
+message Empty {
 }
