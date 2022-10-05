@@ -1,7 +1,9 @@
 import grpc
 
 import movie_pb2
+import showtime_pb2
 import movie_pb2_grpc
+import showtime_pb2_grpc
 
 
 def get_movie_by_id(stub, id):
@@ -29,6 +31,19 @@ def get_movie_by_director(stub, director):
 def update_movie_rating(stub, movieIdRating):
     movie = stub.UpdateMovieRating(movieIdRating)
     print(movie)
+
+def get_showtime_by_date(stub, date):
+    movies = stub.GetMoviesByDate(date)
+    for movie in movies:
+        print(movie)
+
+def get_list_showtimes(stubTime):
+    allShowtimes = stubTime.GetAllShowtimes(showtime_pb2.EmptyShowtime())
+    for show in allShowtimes:
+        print('----------')
+        print("Date: " + show.date)
+        for movie in show.movies:
+            print("  -Movie: " + movie)
 
 
 def run():
@@ -63,6 +78,18 @@ def run():
 
     channel.close()
 
+    with grpc.insecure_channel('localhost:3002') as channel:
+        stub = showtime_pb2_grpc.ShowtimeStub(channel)
+
+        print("-------------- GetShowtimesByDate --------------")
+        date = showtime_pb2.ShowtimeDate(date="20151130")
+        get_showtime_by_date(stub, date)
+
+        print("-------------- AllShowtimes --------------")
+        get_list_showtimes(stub)
+
+
+    channel.close()
 
 if __name__ == '__main__':
     run()
