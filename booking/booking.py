@@ -34,8 +34,6 @@ def get_booking_for_user(userid):
          return make_response(jsonify(booking), 200)
    return make_response(jsonify({"error":"booking with this id not found"}),400)
 
-def get_schedule_by_date(stub, date):
-   return stub.GetMoviesByDateTmp(date)
 
 # Fonction crée par Tournier Quentin et Marche Jules
 # But: Ajouter une réservation à un utilisateur
@@ -50,7 +48,7 @@ def add_booking_byuser(userid):
    with grpc.insecure_channel('localhost:3002') as channel:
       stub = showtime_pb2_grpc.ShowtimeStub(channel)
 
-      schedule = get_schedule_by_date(stub, showtime_pb2.ShowtimeDate(date=str(req["date"])))
+      schedule = stub.GetShowtimesByDate(showtime_pb2.ShowtimeDate(date=str(req["date"])))
 
    channel.close()
 

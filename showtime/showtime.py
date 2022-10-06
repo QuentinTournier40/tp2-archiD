@@ -19,7 +19,7 @@ class ShowtimeServicer(showtime_pb2_grpc.ShowtimeServicer):
             if showTime["date"] == request.date:
                 yield showtime_pb2.MoviesId(movieid=showTime["movies"])
 
-    def GetMoviesByDateTmp(self, request, context):
+    def GetShowtimesByDate(self, request, context):
         for showTime in self.db:
             if showTime["date"] == request.date:
                 return showtime_pb2.ShowtimeData(date=showTime["date"],movies=showTime["movies"])

@@ -3,7 +3,7 @@ syntax = "proto3";
 service Showtime{
   rpc GetAllShowtimes(EmptyShowtime) returns (stream ShowtimeData) {}
   rpc GetMoviesByDate(ShowtimeDate) returns (stream MoviesId){}
-  rpc GetMoviesByDateTmp(ShowtimeDate) returns (ShowtimeData) {}
+  rpc GetShowtimesByDate(ShowtimeDate) returns (ShowtimeData) {}
 }
 
 message ShowtimeData{

@@ -24,8 +24,8 @@ class ShowtimeStub(object):
                 request_serializer=showtime__pb2.ShowtimeDate.SerializeToString,
                 response_deserializer=showtime__pb2.MoviesId.FromString,
                 )
-        self.GetMoviesByDateTmp = channel.unary_unary(
-                '/Showtime/GetMoviesByDateTmp',
+        self.GetShowtimesByDate = channel.unary_unary(
+                '/Showtime/GetShowtimesByDate',
                 request_serializer=showtime__pb2.ShowtimeDate.SerializeToString,
                 response_deserializer=showtime__pb2.ShowtimeData.FromString,
                 )
@@ -46,7 +46,7 @@ class ShowtimeServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetMoviesByDateTmp(self, request, context):
+    def GetShowtimesByDate(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -65,8 +65,8 @@ def add_ShowtimeServicer_to_server(servicer, server):
                     request_deserializer=showtime__pb2.ShowtimeDate.FromString,
                     response_serializer=showtime__pb2.MoviesId.SerializeToString,
             ),
-            'GetMoviesByDateTmp': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetMoviesByDateTmp,
+            'GetShowtimesByDate': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetShowtimesByDate,
                     request_deserializer=showtime__pb2.ShowtimeDate.FromString,
                     response_serializer=showtime__pb2.ShowtimeData.SerializeToString,
             ),
@@ -115,7 +115,7 @@ class Showtime(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetMoviesByDateTmp(request,
+    def GetShowtimesByDate(request,
             target,
             options=(),
             channel_credentials=None,
@@ -125,7 +125,7 @@ class Showtime(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/Showtime/GetMoviesByDateTmp',
+        return grpc.experimental.unary_unary(request, target, '/Showtime/GetShowtimesByDate',
             showtime__pb2.ShowtimeDate.SerializeToString,
             showtime__pb2.ShowtimeData.FromString,
             options, channel_credentials,
