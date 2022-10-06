@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0eshowtime.proto\",\n\x0cShowtimeData\x12\x0c\n\x04\x64\x61te\x18\x01 \x01(\t\x12\x0e\n\x06movies\x18\x02 \x03(\t\"\x1c\n\x0cShowtimeDate\x12\x0c\n\x04\x64\x61te\x18\x01 \x01(\t\"\x1b\n\x08MoviesId\x12\x0f\n\x07movieid\x18\x01 \x03(\t\"\x0f\n\rEmptyShowtime2q\n\x08Showtime\x12\x34\n\x0fGetAllShowtimes\x12\x0e.EmptyShowtime\x1a\r.ShowtimeData\"\x00\x30\x01\x12/\n\x0fGetMoviesByDate\x12\r.ShowtimeDate\x1a\t.MoviesId\"\x00\x30\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0eshowtime.proto\",\n\x0cShowtimeData\x12\x0c\n\x04\x64\x61te\x18\x01 \x01(\t\x12\x0e\n\x06movies\x18\x02 \x03(\t\"\x1c\n\x0cShowtimeDate\x12\x0c\n\x04\x64\x61te\x18\x01 \x01(\t\"\x1b\n\x08MoviesId\x12\x0f\n\x07movieid\x18\x01 \x03(\t\"\x0f\n\rEmptyShowtime2\xa7\x01\n\x08Showtime\x12\x34\n\x0fGetAllShowtimes\x12\x0e.EmptyShowtime\x1a\r.ShowtimeData\"\x00\x30\x01\x12/\n\x0fGetMoviesByDate\x12\r.ShowtimeDate\x1a\t.MoviesId\"\x00\x30\x01\x12\x34\n\x12GetMoviesByDateTmp\x12\r.ShowtimeDate\x1a\r.ShowtimeData\"\x00\x62\x06proto3')
 
 
 
@@ -62,6 +62,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _MOVIESID._serialized_end=121
   _EMPTYSHOWTIME._serialized_start=123
   _EMPTYSHOWTIME._serialized_end=138
-  _SHOWTIME._serialized_start=140
-  _SHOWTIME._serialized_end=253
+  _SHOWTIME._serialized_start=141
+  _SHOWTIME._serialized_end=308
 # @@protoc_insertion_point(module_scope)
