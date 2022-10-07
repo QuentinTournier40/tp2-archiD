@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0bmovie.proto\"\x15\n\x07MovieID\x12\n\n\x02id\x18\x01 \x01(\t\"\x1b\n\nMovieTitle\x12\r\n\x05title\x18\x01 \x01(\t\"!\n\rMovieDirector\x12\x10\n\x08\x64irector\x18\x01 \x01(\t\"+\n\rMovieIdRating\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06rating\x18\x02 \x01(\x02\"H\n\tMovieData\x12\r\n\x05title\x18\x01 \x01(\t\x12\x0e\n\x06rating\x18\x02 \x01(\x02\x12\x10\n\x08\x64irector\x18\x03 \x01(\t\x12\n\n\x02id\x18\x04 \x01(\t\"&\n\x13NotificationMessage\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x07\n\x05\x45mpty2\xa0\x02\n\x05Movie\x12&\n\x0cGetMovieByID\x12\x08.MovieID\x1a\n.MovieData\"\x00\x12\'\n\rGetListMovies\x12\x06.Empty\x1a\n.MovieData\"\x00\x30\x01\x12,\n\x0fGetMovieByTitle\x12\x0b.MovieTitle\x1a\n.MovieData\"\x00\x12\x31\n\x0b\x43reateMovie\x12\n.MovieData\x1a\x14.NotificationMessage\"\x00\x12\x32\n\x12GetMovieByDirector\x12\x0e.MovieDirector\x1a\n.MovieData\"\x00\x12\x31\n\x11UpdateMovieRating\x12\x0e.MovieIdRating\x1a\n.MovieData\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0bmovie.proto\"\x15\n\x07MovieID\x12\n\n\x02id\x18\x01 \x01(\t\"\x1b\n\nMovieTitle\x12\r\n\x05title\x18\x01 \x01(\t\"!\n\rMovieDirector\x12\x10\n\x08\x64irector\x18\x01 \x01(\t\"+\n\rMovieIdRating\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06rating\x18\x02 \x01(\x02\"H\n\tMovieData\x12\r\n\x05title\x18\x01 \x01(\t\x12\x0e\n\x06rating\x18\x02 \x01(\x02\x12\x10\n\x08\x64irector\x18\x03 \x01(\t\x12\n\n\x02id\x18\x04 \x01(\t\"&\n\x13NotificationMessage\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x07\n\x05\x45mpty2\xd5\x02\n\x05Movie\x12&\n\x0cGetMovieByID\x12\x08.MovieID\x1a\n.MovieData\"\x00\x12\'\n\rGetListMovies\x12\x06.Empty\x1a\n.MovieData\"\x00\x30\x01\x12,\n\x0fGetMovieByTitle\x12\x0b.MovieTitle\x1a\n.MovieData\"\x00\x12\x31\n\x0b\x43reateMovie\x12\n.MovieData\x1a\x14.NotificationMessage\"\x00\x12\x32\n\x12GetMovieByDirector\x12\x0e.MovieDirector\x1a\n.MovieData\"\x00\x12\x31\n\x11UpdateMovieRating\x12\x0e.MovieIdRating\x1a\n.MovieData\"\x00\x12\x33\n\x0f\x44\x65leteMovieById\x12\x08.MovieID\x1a\x14.NotificationMessage\"\x00\x62\x06proto3')
 
 
 
@@ -93,5 +93,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _EMPTY._serialized_start=261
   _EMPTY._serialized_end=268
   _MOVIE._serialized_start=271
-  _MOVIE._serialized_end=559
+  _MOVIE._serialized_end=612
 # @@protoc_insertion_point(module_scope)

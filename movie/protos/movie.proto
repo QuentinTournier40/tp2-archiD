@@ -7,6 +7,7 @@ service Movie {
     rpc CreateMovie(MovieData) returns (NotificationMessage) {}
     rpc GetMovieByDirector(MovieDirector) returns (MovieData) {}
     rpc UpdateMovieRating(MovieIdRating) returns (MovieData) {}
+    rpc DeleteMovieById(MovieID) returns (NotificationMessage) {}
 }
 
 message MovieID {

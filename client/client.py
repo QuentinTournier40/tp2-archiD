@@ -55,6 +55,10 @@ def add_booking_by_userid(stub, booking):
     message = stub.AddBookingByUserid(booking)
     print(message)
 
+def delete_movie_by_id(stub, id):
+    message = stub.DeleteMovieById(id)
+    print(message)
+
 def run():
     # NOTE(gRPC Python Team): .close() is possible on a channel and should be
     # used in circumstances in which the with statement does not fit the needs
@@ -85,6 +89,10 @@ def run():
         movieIdRating = movie_pb2.MovieIdRating(id="267eedb8-0f5d-42d5-8f43-72426b9fb3e6", rating=14.2)
         update_movie_rating(stub, movieIdRating)
 
+        print("-------------- DeleteMovieById --------------")
+        movieid = movie_pb2.MovieID(id="39ab85e5-5e8e-4dc5-afea-65dc368bd7ab")
+        delete_movie_by_id(stub, movieid)
+
     channel.close()
 
     with grpc.insecure_channel('localhost:3002') as channel:
@@ -107,7 +115,7 @@ def run():
         get_booking_by_userid(stub,userid)
 
         print("-------------- AddBookingByUserid --------------")
-        booking = booking_pb2.OneBooking(userid="dwight_schrute", date="20151201", movieid="39ab85e5-5e8e-4dc5-afea-65dc368bd7ab")
+        booking = booking_pb2.OneBooking(userid="dwight_schrute", date="20151201", movieid="7daf7208-be4d-4944-a3ae-c1c2f516f3e6")
         add_booking_by_userid(stub, booking)
 
 

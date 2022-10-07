@@ -62,6 +62,12 @@ class MovieServicer(movie_pb2_grpc.MovieServicer):
                                            id=movie['id'])
         return movie_pb2.MovieData(title="", rating=0.0, director="", id="")
 
+    def DeleteMovieById(self, request, context):
+        for movie in self.db:
+            if movie["id"] == request.id:
+                self.db.pop(self.db.index(movie))
+                return movie_pb2.NotificationMessage(message="Movie deleted")
+        return movie_pb2.NotificationMessage(message="Movieid not found")
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     movie_pb2_grpc.add_MovieServicer_to_server(MovieServicer(), server)
