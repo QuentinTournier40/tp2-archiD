@@ -115,7 +115,7 @@ def run():
         get_booking_by_userid(stub,userid)
 
         print("-------------- AddBookingByUserid --------------")
-        booking = booking_pb2.OneBooking(userid="dwight_schrute", date="20151201", movieid="7daf7208-be4d-4944-a3ae-c1c2f516f3e6")
+        booking = booking_pb2.OneBooking(userid="dwight_schrute", date="20161002", movieid="7daf7208-be4d-4944-a3ae-c1c2f516f3e6")
         add_booking_by_userid(stub, booking)
 
 

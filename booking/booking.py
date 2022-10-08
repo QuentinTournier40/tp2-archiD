@@ -1,5 +1,3 @@
-from flask import Flask, render_template, request, jsonify, make_response
-import requests
 import json
 import grpc
 import showtime_pb2_grpc
@@ -8,7 +6,6 @@ import booking_pb2_grpc
 import booking_pb2
 from concurrent import futures
 from google.protobuf.json_format import MessageToJson
-from werkzeug.exceptions import NotFound
 
 class BookingServicer(booking_pb2_grpc.BookingServicer):
 
@@ -24,44 +21,64 @@ class BookingServicer(booking_pb2_grpc.BookingServicer):
                     date = booking_pb2.Dates(date=dateInfos["date"], movieid=dateInfos["movies"])
                     allDate.append(date)
                 return booking_pb2.BookingObject(userid=booking["userid"], dates=allDate)
+        return booking_pb2.BookingObject(userid="", dates=[])
 
     def AddBookingByUserid(self, request, context):
         scheduleExist = False
 
+        # Recupération des films diffusés à la date donnée
         with grpc.insecure_channel('localhost:3002') as channel:
             stub = showtime_pb2_grpc.ShowtimeStub(channel)
-            schedule = stub.GetShowtimesByDate(showtime_pb2.ShowtimeDate(date=request.date))
+            schedule = stub.GetShowtimesByDate(showtime_pb2.ShowtimeDate(date=str(request.date)))
 
-        channel.close()
+        scheduleJson = json.loads(MessageToJson(schedule))
 
-        schedule = json.loads(MessageToJson(schedule))
+        # Check s'il existe une programme pour cette date
+        if not bool(scheduleJson):
+            return booking_pb2.NotificationMessageBooking(message="0 films programed for this date")
 
-        for moviesShownId in schedule["movies"]:
+        # Check si l'utilisateur existe
+        bookingOfUser = {}
+        for booking in self.db:
+            if booking["userid"] == request.userid:
+                bookingOfUser = booking
+
+        if not bool(bookingOfUser):
+            return booking_pb2.NotificationMessageBooking(message="Userid not found")
+
+        # Check si le film est diffusé à la date donnée
+        for moviesShownId in scheduleJson["movies"]:
             if request.movieid == moviesShownId:
                 scheduleExist = True
 
         if not scheduleExist:
             return booking_pb2.NotificationMessageBooking(message="Movie not shown at this date")
 
-        for booking in self.db:
-            if str(booking["userid"]) == str(request.userid):
-                bookingUser = booking
-                for bookingDateInfo in booking["dates"]:
-                    if bookingDateInfo["date"] == request.date:
-                        for movie in bookingDateInfo["movies"]:
-                            if movie == request.movieid:
-                                return booking_pb2.NotificationMessageBooking(message="This booking already exists for this movie at this date")
+        # Check si l'utilisateur a deja reservé un film à la date demandée
+        dateInfosOfBooking = {}
+        for bookingDateInfo in bookingOfUser["dates"]:
+            if bookingDateInfo["date"] == str(request.date):
+                dateInfosOfBooking = bookingDateInfo
 
-        if 'bookingUser' in locals():
-            newMovie = {
-                "date": request.date,
-                "movieid": request.movieid
-            }
-            bookingUser["dates"].append(newMovie)
+        # Si il a deja un film reservé à la date demandé il faut verifier que ce n'est pas celui qu'il demande maintenant
+        if bool(dateInfosOfBooking):
+            for movieid in dateInfosOfBooking["movies"]:
+                if movieid == request.movieid:
+                    return booking_pb2.NotificationMessageBooking(message="This booking already exists for this movie at this date")
 
-            return booking_pb2.NotificationMessageBooking(message="booking added")
+        # Mise à jour de la BDD
+        indexBookingOfUser = self.db.index(bookingOfUser)
+        if bool(dateInfosOfBooking):
+            # Si l'user possède deja une reservation pour la date demandée
+            indexDate = bookingOfUser["dates"].index(dateInfosOfBooking)
+            bookingOfUser["dates"][indexDate]["movies"].append(request.movieid)
         else:
-            return booking_pb2.NotificationMessageBooking(message="UserId not found")
+            # Si l'user ne possède pas une reservation pour la date demandée
+            reqJson = json.loads(MessageToJson(request))
+            bookingOfUser["dates"].append(reqJson)
+
+        self.db[indexBookingOfUser] = bookingOfUser
+        return booking_pb2.NotificationMessageBooking(message="booking added")
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
