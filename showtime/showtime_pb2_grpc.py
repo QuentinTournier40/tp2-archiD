@@ -35,19 +35,31 @@ class ShowtimeServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetAllShowtimes(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Fonction crée par Tournier Quentin et Marche Jules
+        But: Affichez tous les films diffusés
+        En entrée:
+        En sortie: les films diffusés
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetMoviesByDate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Fonction crée par Tournier Quentin et Marche Jules
+        But: Affichez les films diffusés à la date donnée
+        En entrée: date
+        En sortie: un tableau de tous les movieId diffusés à cette date
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetShowtimesByDate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Fonction crée par Tournier Quentin et Marche Jules
+        But: Affichez les films diffusés à la date donnée
+        En entrée: date
+        En sortie: es films diffusés à la date passé en paramètre, ansi que le date
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')

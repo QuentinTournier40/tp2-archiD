@@ -30,13 +30,24 @@ class BookingServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetBookingByUserid(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Fonction crée par Tournier Quentin et Marche Jules
+        But: Afficher toutes les réservations d'un Utilisateur
+        En entrée: UserId
+        En sortie: Un objet regroupant toutes les réservation de l'utilisateur
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def AddBookingByUserid(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Fonction crée par Tournier Quentin et Marche Jules
+        But: Ajouter une réservation à un utilisateur
+        En entrée: L'objet OneBooking:
+        -userId
+        -date
+        -movieId
+        En sortie: Un message stipulant l'ajout de la réservation ou d'erreur
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')

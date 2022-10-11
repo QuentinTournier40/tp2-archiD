@@ -55,43 +55,73 @@ class MovieServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetMovieByID(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Fonction crée par Tournier Quentin et Marche Jules
+        But: Afficher un movie
+        En entrée: IdMovie
+        En sortie: L'objet Movie
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetListMovies(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Fonction crée par Tournier Quentin et Marche Jules
+        But: Afficher tous les objets de la BDD
+        En entrée:
+        En sortie: Un tableau de tous les objets de la BDD
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetMovieByTitle(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Fonction crée par Tournier Quentin et Marche Jules
+        But: Afficher le movie dirigé par le directeur passé en entrée
+        En entrée: MovieTitle -> string
+        En sortie: L'objet Movie
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateMovie(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Fonction crée par Tournier Quentin et Marche Jules
+        But: Créer un movie
+        En entrée: L'objet Movie
+        En sortie: Un message stipulant la création de l'objet
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetMovieByDirector(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Fonction crée par Tournier Quentin et Marche Jules
+        But: Afficher le movie dirigé par le directeur passé en entrée
+        En entrée: MovieDirector -> string
+        En sortie: L'objet Movie
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateMovieRating(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Fonction crée par Tournier Quentin et Marche Jules
+        But: Modifier le rate d'un movie
+        En entrée: L'objet MovieIdRating:
+        -Id Movie -> string
+        -Rating -> float
+        En sortie: Un message stipulant la création ou non de l'objet
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteMovieById(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Fonction crée par Tournier Quentin et Marche Jules
+        But: Supprimer un movie
+        En entrée: IdMovie
+        En sortie: Un message stipulant la destruction ou non de l'objet
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
