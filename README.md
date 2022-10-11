@@ -15,8 +15,8 @@ TP ROUGE ❌
 5. La compilation des fichiers "proto" a été faite. Il n'y a donc pas besoin de les re-compiler
 
 (6. Pour lancer le fichier python :   
-6.1. Se placer dans le dossier où se trouve le fichier : taper cd <dossier>   
-6.2. Compiler le fichier : taper py <fichier.py>
+6.1. Se placer dans le dossier où se trouve le fichier : taper ```cd <dossier>```   
+6.2. Compiler le fichier : taper ```py <fichier.py>```
 
 Ou bien la flèche pour lancer un fichier)
 
