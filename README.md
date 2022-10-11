@@ -4,7 +4,7 @@
 
 TP VERT ✅  
 TP BLEU ✅  
-TP ROUGE ❌ 
+TP ROUGE ✅ 
 
 ## Comment lancer l'environnement:
 
@@ -22,10 +22,22 @@ Ou bien la flèche pour lancer un fichier)
 
 NB: Nous avons décider d'utiliser PyCharm, il n'y a donc aucune installation d'environnement nécessaire au bon fonctionnement du projet si ce n'est les requirements.
 
+
 ## Contenu:
 
 Le code est commenté autant que possible pour expliquer le principe de chaque fonction. Pour chacune d'entre-elles, dans les commentaires, vous trouverez son but, le type de données à entrer et le type de données renvoyées ou non.
 
+Ici toutes les descriptions de fonctions sont dans les fichiers proto.               
+
+
+Concerant le TP ROUGE, les fonctions que nous avons utiliser pour l'asynchrone sont :            
+ ```py
+ GetMovieById()
+ GetMovieByTitle()             
+ GetMovieByDirector() 
+ ```         
+ 
+ 
 
 ## Auteurs: 
 
