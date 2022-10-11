@@ -1,3 +1,5 @@
+import time
+
 import grpc
 
 import movie_pb2
@@ -63,6 +65,7 @@ def run():
     # NOTE(gRPC Python Team): .close() is possible on a channel and should be
     # used in circumstances in which the with statement does not fit the needs
     # of the code.
+    # ------------------------------ Synchrone -----------------------------------------------------
     with grpc.insecure_channel('localhost:3001') as channel:
         stub = movie_pb2_grpc.MovieStub(channel)
 
@@ -82,8 +85,8 @@ def run():
         get_movie_by_title(stub, movieTitle)
 
         print("-------------- GetMovieByDirector --------------")
-        movieTitle = movie_pb2.MovieDirector(director="Jonathan Levine")
-        get_movie_by_director(stub, movieTitle)
+        directorName = movie_pb2.MovieDirector(director="Jonathan Levine")
+        get_movie_by_director(stub, directorName)
 
         print("-------------- UpdateMovieRating --------------")
         movieIdRating = movie_pb2.MovieIdRating(id="267eedb8-0f5d-42d5-8f43-72426b9fb3e6", rating=14.2)
@@ -92,8 +95,6 @@ def run():
         print("-------------- DeleteMovieById --------------")
         movieid = movie_pb2.MovieID(id="39ab85e5-5e8e-4dc5-afea-65dc368bd7ab")
         delete_movie_by_id(stub, movieid)
-
-    channel.close()
 
     with grpc.insecure_channel('localhost:3002') as channel:
         stub = showtime_pb2_grpc.ShowtimeStub(channel)
@@ -118,9 +119,34 @@ def run():
         booking = booking_pb2.OneBooking(userid="dwight_schrute", date="20161002", movieid="7daf7208-be4d-4944-a3ae-c1c2f516f3e6")
         add_booking_by_userid(stub, booking)
 
+    channel.close()
 
+    # ------------------------------ Asynchrone -----------------------------------------------------
+
+    with grpc.insecure_channel('localhost:3001') as channel:
+        stub = movie_pb2_grpc.MovieStub(channel)
+
+        # Réalisation des requetes en asynchrone
+
+        print("-------------- Async --------------")
+
+        movieid = movie_pb2.MovieID(id="720d006c-3a57-4b6a-b18f-9b713b073f3c")
+        call_future_1 = stub.GetMovieByID.future(movieid)
+
+        movieTitle = movie_pb2.MovieTitle(title="The Martian")
+        call_future_2 = stub.GetMovieByTitle.future(movieTitle)
+
+        directorName = movie_pb2.MovieDirector(director="Jonathan Levine")
+        call_future_3 = stub.GetMovieByDirector.future(directorName)
+
+        futureList = [call_future_1, call_future_2, call_future_3]
+
+        for future in futureList:
+            # result attend le retour des valeurs des requetes et retourne la reponse de cette requete
+            print(future.result())
 
     channel.close()
+
 
 if __name__ == '__main__':
     run()
