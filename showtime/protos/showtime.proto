@@ -1,8 +1,24 @@
 syntax = "proto3";
 
 service Showtime{
+
+  // Fonction crée par Tournier Quentin et Marche Jules
+  // But: Affichez tous les films diffusés
+  // En entrée:
+  // En sortie: les films diffusés
   rpc GetAllShowtimes(EmptyShowtime) returns (stream ShowtimeData) {}
+
+  // Fonction crée par Tournier Quentin et Marche Jules
+  // But: Affichez les films diffusés à la date donnée
+  // En entrée: date
+  // En sortie: un tableau de tous les movieId diffusés à cette date
   rpc GetMoviesByDate(ShowtimeDate) returns (stream MoviesId){}
+
+
+  // Fonction crée par Tournier Quentin et Marche Jules
+  // But: Affichez les films diffusés à la date donnée
+  // En entrée: date
+  // En sortie: es films diffusés à la date passé en paramètre, ansi que le date
   rpc GetShowtimesByDate(ShowtimeDate) returns (ShowtimeData) {}
 }
 
